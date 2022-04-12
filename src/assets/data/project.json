@@ -1,0 +1,27 @@
+{
+  "id": "140892",
+  "name": "Angular Jira Clone",
+  "url": "https://github.com/trungk18/jira-clone-angular",
+  "description": "A Jira clone app built with Angular 10, Akita and ng-zorro - by trungk18",
+  "category": "Software",
+  "createdAt": "2020-06-12T16:00:00.000Z",
+  "updatedAt": "2020-06-13T16:00:00.000Z",
+  "users": [
+    {
+      "id": "d65047e5-f4cf-4caa-9a38-6073dcbab7d1",
+      "name": "Igor Skorobog",
+      "avatarUrl": "https://st2.depositphotos.com/3700043/5796/v/600/depositphotos_57966919-stock-illustration-funny-cartoon-trolley-bus.jpg",
+      "projectId": "140892"
+    },
+    {
+      "id": "7ac265f9-b9ac-443f-a2b2-795682e579a4",
+      "name": "Vlad Bliznets",
+      "avatarUrl": "https://static01.nyt.com/images/2020/07/13/t-magazine/13tmag-deeman/13tmag-deeman-superJumbo.jpg?quality=75&auto=webp",
+      "projectId": "140892"
+    }
+    
+  ],
+  "issues": [
+   
+  ]
+}

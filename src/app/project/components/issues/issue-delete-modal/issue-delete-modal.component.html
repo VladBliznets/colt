@@ -1,0 +1,12 @@
+<div class="px-10 py-8">
+    <div class="pb-4 text-2xl font-medium leading-normal text-textDarkest">
+        Ви впевнені, що бажаєте видалити задачу?
+    </div>
+    <p class="pb-4 whitespace-pre-wrap text-15">Це не можна буде відмінити.</p>
+    <div class="flex pt-3">
+        <j-button className="btn-primary mr-2" (click)="deleteIssue()">Видалити</j-button>
+        <j-button className="'btn-empty'"
+                  (click)="closeModal()">
+            Відміна</j-button>
+    </div>
+</div>
