@@ -1,3 +1,5 @@
+import { MatFormField } from '@angular/material/form-field';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { CommonModule } from '@angular/common';
@@ -33,6 +35,20 @@ import { FullIssueDetailComponent } from './pages/full-issue-detail/full-issue-d
 import { SettingsComponent } from './pages/settings/settings.component';
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './project.component';
+import { AuthhComponent } from './authh/authh.component';
+import { AuComponent } from './au/au.component';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+
+
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+//import { MatFormField } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +68,9 @@ import { ProjectComponent } from './project.component';
     IssuePrioritySelectComponent,
     IssueReporterSelectComponent,
     IssueAssigneesSelectComponent,
-    ResizerComponent
+    ResizerComponent,
+    AuthhComponent,
+    AuComponent
   ],
   imports: [
     CommonModule,
@@ -63,6 +81,12 @@ import { ProjectComponent } from './project.component';
     NzDropDownModule,
     NzSelectModule,
     NzNotificationModule,
+    MatFormField,
+    FormsModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatIconModule,
     NzDrawerModule,
     NzPopoverModule,
     DragDropModule,

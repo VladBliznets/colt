@@ -5,6 +5,8 @@ import { ProjectQuery } from './project/state/project/project.query';
 import { ProjectService } from './project/state/project/project.service';
 import { GoogleAnalyticsService } from './core/services/google-analytics.service';
 
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

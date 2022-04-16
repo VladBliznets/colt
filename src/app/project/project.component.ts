@@ -3,6 +3,8 @@ import { ProjectService } from './state/project/project.service';
 import { AuthService } from './auth/auth.service';
 import { LoginPayload } from '@trungk18/project/auth/loginPayload';
 
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',

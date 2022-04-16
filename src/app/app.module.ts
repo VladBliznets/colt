@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
@@ -15,6 +15,13 @@ import { QuillModule } from 'ngx-quill';
 import * as Sentry from '@sentry/angular';
 import { Router } from '@angular/router';
 
+
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,6 +29,8 @@ import { Router } from '@angular/router';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
+ 
     AppRoutingModule,
     NzSpinModule,
     NzIconModule.forRoot([]),
