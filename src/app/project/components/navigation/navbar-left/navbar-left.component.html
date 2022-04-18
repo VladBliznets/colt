@@ -18,11 +18,27 @@
                    nzTheme="outline"></i>
             </div>
         </div>
-        
+
         <div class="flex-auto"></div>
-        <div>
-            <a routerLink="/authh/au">hci</a>
-        </div>
+        <mat-toolbar color="primary">
+        <div *ngIf="!authorizedUser" class="header-content auth-area">
+            <p class="atuin-btn" (click)="openAuthDialog(dialogType.SignIn)">Sign<br> In</p> 
+           
+            <p class="atuin-btn" color="white" (click)="openAuthDialog(dialogType.SignUp)">Sign<br> Up</p>
+          
+          <div *ngIf="authorizedUser" class="header-content" [matMenuTriggerFor]="menu">
+            <img class="avatar avatar-size" src="{{authorizedUser.avatar}}" alt="Ava">
+            <div class="user-area">
+              <div>{{authorizedUser.userName}}</div>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <div mat-menu-item [routerLink]="['/profile']">Go to profile</div>
+                <div mat-menu-item (click)="logout()"><u>Logout</u></div>
+              </mat-menu>
+            </div>
+          </div>
+          </div>
+        </mat-toolbar>
+
         <div class="item"
              *ngIf="authQuery.user$ | async as user">
             <div nz-tooltip
@@ -35,7 +51,9 @@
                 </j-avatar>
             </div>
         </div>
-       
+    
+
+
     </div>
 </aside>
 

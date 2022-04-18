@@ -4,18 +4,28 @@ import { NzDrawerService } from 'ng-zorro-antd/drawer';
 import { SearchDrawerComponent } from '../../search/search-drawer/search-drawer.component';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { AddIssueModalComponent } from '../../add-issue-modal/add-issue-modal.component';
-
+import { DialogType } from '@trungk18/project/models/auth-dialog-type';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {User} from 'src/app/project/models/user';
+import { AuthDialogService } from '@trungk18/project/services/auth-dialog.service';
+import { AuthenticationService } from 'src/app/project/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar-left',
   templateUrl: './navbar-left.component.html',
   styleUrls: ['./navbar-left.component.scss']
 })
 export class NavbarLeftComponent implements OnInit {
+  public authorizedUser: User;
+  public dialogType = DialogType;
   items: NavItem[];
   constructor(
     public authQuery: AuthQuery,
+    private authDialogService: AuthDialogService,
+    private authService:AuthenticationService,
     private _drawerService: NzDrawerService,
-    private _modalService: NzModalService
+    private _modalService: NzModalService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +43,14 @@ export class NavbarLeftComponent implements OnInit {
       nzWidth: 700
     });
   }
-
+  public openAuthDialog(type: DialogType) {
+    this.authDialogService.openAuthDialog(type);
+}
+public logout() {
+  this.authService.logout();
+  this.authorizedUser = undefined;
+  this.router.navigate(['/']);
+}
   openSearchDrawler() {
     this._drawerService.create({
       nzContent: SearchDrawerComponent,

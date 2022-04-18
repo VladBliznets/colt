@@ -42,11 +42,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
-
-
+import { MatMenuModule} from '@angular/material/menu';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 //import { MatFormField } from '@angular/material/form-field';
 
 
@@ -94,7 +94,12 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     JiraControlModule,
     ContentLoaderModule,
-    QuillModule
+    QuillModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatDialogModule,
+    //MatSnackBar
+    
   ]
 })
 export class ProjectModule {}

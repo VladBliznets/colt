@@ -20,12 +20,8 @@ const routes: Routes = [
     component: ProjectComponent,
     children: [
       {
-        path: 'board',
+        path: '',
         component: BoardComponent
-      },
-      {
-        path: 'au', 
-        component: AuComponent
       },
       {
         path: 'settings',
