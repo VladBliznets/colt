@@ -124,6 +124,7 @@ module.exports = {
       tertiary: '#e6e9f0',
       textDarkest: '#172b4d',
       textDark: '#42526E',
+      textBlack: '#000000',
       textMedium: '#5E6C84',
       textLight: '#8993a4',
       textLink: '#0052cc',
@@ -142,7 +143,7 @@ module.exports = {
     },
     spacing: {
       sidebar: '240px',
-      navbarLeft: '64px',
+      navbarLeft: '82px',
       px: '1px',
       '0': '0',
       '1': '0.25rem',
@@ -287,7 +288,7 @@ module.exports = {
     }),
     inset: {
       '0': '0',
-      navbarLeft: '64px',
+      navbarLeft: '82px',
       sidebar: '230px',
       auto: 'auto'
     },

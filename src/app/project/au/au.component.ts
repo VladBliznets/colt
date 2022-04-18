@@ -9,6 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { SnackBarService } from 'src/app/project/services/snack-bar.service';
 
 
+
 @Component({
     templateUrl: './au.component.html',
     styleUrls: ['./au.component.scss']
@@ -29,7 +30,7 @@ export class AuComponent implements OnInit, OnDestroy
         private dialogRef: MatDialogRef<AuComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         private authService: AuthenticationService,
-        //private snackBarService: SnackBarService
+        private snackBarService: SnackBarService
     ) { }
 
     public ngOnInit() {
@@ -51,7 +52,7 @@ export class AuComponent implements OnInit, OnDestroy
             .login({ email: this.email, password: this.password })
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe((response) => this.dialogRef.close(response)
-            //, (error) => this.snackBarService.showErrorMessage(error)
+            , (error) => this.snackBarService.showErrorMessage(error)
             );
     }
 
@@ -63,7 +64,7 @@ export class AuComponent implements OnInit, OnDestroy
             })
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe((response) => this.dialogRef.close(response)
-            //, (error) => this.snackBarService.showErrorMessage(error)
+            , (error) => this.snackBarService.showErrorMessage(error)
             );
     }
 }

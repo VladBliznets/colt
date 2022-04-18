@@ -2,22 +2,28 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+   // background-color: antiquewhite;
 }
 .mat-dialog-content{
-    background-color: antiquewhite;
+   // background-color: antiquewhite;
 }
 .title{
     text-align: center;
+  //  background-color: antiquewhite;
 }
 .actions{
     display: flex;
     justify-content: space-around;
+   // background-color: antiquewhite;
     padding: 8px 0;
     .button{
         width: 100px;}
+        
 }
 .mat-dialog-content{
+   // background-color: antiquewhite;
     padding: 10px 24px;
 }
 .mat-icon{
+  //  background-color: antiquewhite;
     cursor: default;}

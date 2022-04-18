@@ -46,7 +46,8 @@ import { MatMenuModule} from '@angular/material/menu';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackBarService } from './services/snack-bar.service';
 //import { MatFormField } from '@angular/material/form-field';
 
 
@@ -71,6 +72,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     ResizerComponent,
     AuthhComponent,
     AuComponent
+  ],
+  providers: [
+    MatSnackBar,
+    SnackBarService, 
+    MatSnackBarModule,
+    MatDialogModule
   ],
   imports: [
     CommonModule,
@@ -98,7 +105,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatMenuModule,
     MatToolbarModule,
     MatDialogModule,
-    //MatSnackBar
+    MatSnackBarModule
     
   ]
 })
