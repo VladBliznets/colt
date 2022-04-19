@@ -49,15 +49,19 @@ body {
 
 body,
 .ant-modal {
-  @apply text-textDark;
+  @apply text-textLight;
 }
 
 body,
 .horizontal-gradient {
-  background: linear-gradient(to right, black 20%, 60%, yellow);
+  background: linear-gradient(to right, black 20%,  yellow);
 }
 
 .ant-modal-body {
   padding: 0;
 }
 
+.mat-toolbar{
+ 
+  background: black;
+}

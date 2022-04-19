@@ -7,11 +7,13 @@ import { map, takeUntil } from 'rxjs/operators';
 import { AuthenticationService } from './auth.service';
 import { Subscription, Subject } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: 'any' })
 export class AuthDialogService implements OnDestroy {
     private unsubscribe$ = new Subject<void>();
 
-    public constructor(private dialog: MatDialog, private authService: AuthenticationService) {}
+    public constructor(private dialog: MatDialog, 
+        private authService: AuthenticationService
+        ) {}
 
     public openAuthDialog(type: DialogType) {
         const dialog = this.dialog.open(AuComponent, {
