@@ -29,7 +29,7 @@
           <div *ngIf="authorizedUser" class="header-content" [matMenuTriggerFor]="menu">
             <img class="avatar avatar-size" src="{{authorizedUser.avatar}}" alt="Ava">
             <div class="user-area">
-              <div>{{authorizedUser.userName}}</div>
+              <div>{{authorizedUser.username}}</div>
               <mat-menu #menu="matMenu" xPosition="before">
                 <div mat-menu-item [routerLink]="['/profile']">Go to profile</div>
                 <div mat-menu-item (click)="logout()"><u>Logout</u></div>
