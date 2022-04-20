@@ -56,7 +56,8 @@ export class AuComponent implements OnInit, OnDestroy
         this.authService
             .login({ username: this.userName, password: this.password })
             .pipe(takeUntil(this.unsubscribe$))
-            .subscribe((response) => this.dialogRef.close(response)
+            .subscribe(
+                (response) => this.dialogRef.close(response)
             , (error) => this.snackBarService.showErrorMessage(error)
             );
     }

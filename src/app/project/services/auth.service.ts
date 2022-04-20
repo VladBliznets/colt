@@ -41,7 +41,7 @@ export class AuthenticationService {
     }
 
     public login(user: LoginDto) {
-        return this._handleAuthResponse(this.httpService.postFullRequest<AuthUser>(`${this.routePrefix}/login`, user));
+        return this._handleAuthResponse(this.httpService.postFullRequest<any>(`${this.routePrefix}/login`, user));
     }
 
     public logout() {
