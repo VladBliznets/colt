@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 import { AuthenticationService } from 'src/app/project/services/auth.service';
 import { takeUntil } from 'rxjs/operators';
 import { SnackBarService } from 'src/app/project/services/snack-bar.service';
-
+import { AuthDialogService } from '../services/auth-dialog.service';
 
 
 @Component({
@@ -16,16 +16,19 @@ import { SnackBarService } from 'src/app/project/services/snack-bar.service';
 })
 export class AuComponent implements OnInit, OnDestroy 
 {
+    public authDialogService: AuthDialogService;
     public dialogType = DialogType;
     public userName: string;
     public password: string;
     public avatar: string;
     public email: string;
-
+    public firstName: string;
+    public lastName: string;
+    public password2:string;
     public hidePass = true;
     public title: string;
     private unsubscribe$ = new Subject<void>();
-
+    public birthDay:Date;
     constructor(
         private dialogRef: MatDialogRef<AuComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -37,7 +40,9 @@ export class AuComponent implements OnInit, OnDestroy
         this.avatar = 'https://avatars.mds.yandex.net/get-ott/374297/2a000001616b87458162c9216ccd5144e94d/orig';
         this.title = this.data.dialogType === DialogType.SignIn ? 'Sign In' : 'Sign Up';
     }
-
+    public openAuthDialog(type: DialogType) {
+        this.authDialogService.openAuthDialog(type);
+    }
     public ngOnDestroy() {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
@@ -49,7 +54,7 @@ export class AuComponent implements OnInit, OnDestroy
 
     public signIn() {
         this.authService
-            .login({ email: this.email, password: this.password })
+            .login({ username: this.userName, password: this.password })
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe((response) => this.dialogRef.close(response)
             , (error) => this.snackBarService.showErrorMessage(error)
@@ -59,8 +64,8 @@ export class AuComponent implements OnInit, OnDestroy
     public signUp() {
         this.authService
             .register({
-                userName: this.userName, password: this.password, email: this.email,
-                avatar: this.avatar, latitude: 50.4885, longitude: 30.3816
+                username: this.userName, firstName: this.firstName, lastName: this.lastName, password: this.password, password2: this.password2, email: this.email,
+                  birthDay:this.birthDay
             })
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe((response) => this.dialogRef.close(response)

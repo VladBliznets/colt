@@ -9,7 +9,7 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
   {
-    path: 'authh',
+    path: '',
     loadChildren: () => import('./project/project.module').then((m) => m.ProjectModule)
   },
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'authh',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];
