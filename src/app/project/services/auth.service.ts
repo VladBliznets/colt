@@ -10,10 +10,11 @@ import { Observable, of } from 'rxjs';
 import { User } from '../models/user';
 import { UserService } from './user.service';
 import { EventService } from './event.service';
-
+import { RegisterDto } from '../models/RegisterDto';
+import { LoginDto } from '../models/LoginDto';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    public routePrefix = '/api';
+    public routePrefix = '';
     private user: User;
 
     constructor(private httpService: HttpInternalService, private userService: UserService, private eventService: EventService) {}
@@ -35,12 +36,12 @@ export class AuthenticationService {
         this.eventService.userChanged(user);
     }
 
-    public register(user: UserRegisterDto) {
+    public register(user: RegisterDto) {
         return this._handleAuthResponse(this.httpService.postFullRequest<AuthUser>(`${this.routePrefix}/register`, user));
     }
 
-    public login(user: UserLoginDto) {
-        return this._handleAuthResponse(this.httpService.postFullRequest<AuthUser>(`${this.routePrefix}/auth/login`, user));
+    public login(user: LoginDto) {
+        return this._handleAuthResponse(this.httpService.postFullRequest<any>(`${this.routePrefix}/login`, user));
     }
 
     public logout() {

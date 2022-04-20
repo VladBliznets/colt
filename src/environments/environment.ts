@@ -6,7 +6,7 @@ import { EnvironmentModel } from './environment-model';
 
 export const environment: EnvironmentModel = {
   production: false,
-  apiUrl: '/assets/data' // 'http://localhost:3000'
+  apiUrl: 'https://blue-print-hub.herokuapp.com' // 'http://localhost:3000'
 };
 
 /*

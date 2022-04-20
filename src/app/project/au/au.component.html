@@ -1,21 +1,36 @@
 <h2 mat-dialog-title class="title"> Ласкаво просимо</h2>
 <div mat-dialog-content>
   <form name="authForm" #authForm="ngForm" class="main-content">
-    <mat-form-field>
+    <mat-form-field *ngIf="data.dialogType === dialogType.SignUp">
       <input name="authEmail" [(ngModel)]="email" #inEmail="ngModel" matInput placeholder="Електронна пошта">
     </mat-form-field>
-    <mat-form-field *ngIf="data.dialogType === dialogType.SignUp">
+    <mat-form-field  *ngIf="data.dialogType!==dialogType.Forgot">
       <input name="authUserName" [(ngModel)]="userName" #upNickname="ngModel" matInput placeholder="Ім'я користувача">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field *ngIf="data.dialogType === dialogType.SignUp">
+      <input name="authFirstName" [(ngModel)]="firstName" #upNickname="ngModel" matInput placeholder="Ім'я">
+    </mat-form-field>
+    <mat-form-field *ngIf="data.dialogType === dialogType.SignUp">
+      <input name="authLastName" [(ngModel)]="lastName" #upNickname="ngModel" matInput placeholder="Прізвище">
+    </mat-form-field>
+    <mat-form-field *ngIf="data.dialogType!==dialogType.Forgot">
       <input name="authPassword" [(ngModel)]="password" #upPassword="ngModel" matInput
         [type]="hidePass ? 'password' : 'text'" placeholder="Пароль">
       <!-- <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility' : 'visibility_off'}}</mat-icon> -->
     </mat-form-field>
+    <mat-form-field *ngIf="data.dialogType === dialogType.SignUp">
+      <input name="authPassword2" [(ngModel)]="password2" #upPassword="ngModel" matInput
+        [type]="hidePass ? 'password' : 'text'" placeholder="Повторити пароль">
+      <!-- <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility' : 'visibility_off'}}</mat-icon> -->
+    </mat-form-field>
+    <!-- <p class="atuin-btn" (click)="openAuthDialog(dialogType.SignIn)" *ngIf="data.dialogType === dialogType.SignIn">Відновлення пароля</p>  -->
   </form>
 </div>
 <div class="actions">
   <button mat-raised-button (click)="close()">Відміна</button>
-  <button mat-raised-button color="primary"
+  <button mat-raised-button color="primary" *ngIf="data.dialogType===dialogType.SignIn"
     (click)="data.dialogType === dialogType.SignUp ? signUp() : signIn()">Вхід</button>
+
+  <button mat-raised-button color="primary" *ngIf="data.dialogType===dialogType.SignUp"
+    (click)="data.dialogType === dialogType.SignUp ? signUp() : signIn()">Реєстрація</button>
 </div>
