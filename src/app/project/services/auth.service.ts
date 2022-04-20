@@ -36,12 +36,16 @@ export class AuthenticationService {
         this.eventService.userChanged(user);
     }
 
+    public getUserBack() {
+        return this.httpService.getFullRequest<any>(`${this.routePrefix}/user`);
+    }
+    
     public register(user: RegisterDto) {
         return this._handleAuthResponse(this.httpService.postFullRequest<AuthUser>(`${this.routePrefix}/register`, user));
     }
 
     public login(user: LoginDto) {
-        return this._handleAuthResponse(this.httpService.postFullRequest<any>(`${this.routePrefix}/login`, user));
+        return this.httpService.postFullRequest<any>(`${this.routePrefix}/login`, user);
     }
 
     public logout() {

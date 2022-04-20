@@ -22,6 +22,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { HomeModule } from './home/home.module';
+import { NavBarModule } from './nav-bar/nav-bar.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -36,7 +38,9 @@ import { MatIconModule } from '@angular/material/icon';
     NzIconModule.forRoot([]),
     environment.production ? [] : AkitaNgDevtools,
     AkitaNgRouterStoreModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    HomeModule,
+    NavBarModule
   ],
   providers: [
     {

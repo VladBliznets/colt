@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Створити проєкт</h1>
+<br>
+<div mat-dialog-content>
+  <mat-form-field class="field" appearance="fill">
+    <mat-label>Назва</mat-label>
+    <input [(ngModel)]="project.name" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Категорія</mat-label>
+    <mat-select [(ngModel)]="project.category">
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{category}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="field" appearance="fill">
+    <mat-label>Опис</mat-label>
+    <textarea [(ngModel)]="project.description" matInput></textarea>
+</mat-form-field>
+</div>
+<div mat-dialog-actions class="actions">
+  <button mat-button (click)="onNoClick()">Назад</button>
+  <button mat-button (click)="create()" cdkFocusInitial>Створити</button>
+</div>

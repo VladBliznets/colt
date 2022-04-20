@@ -1,0 +1,25 @@
+<div class="projects">
+  <div class="header">
+    <h1 class="label">PROJECTS</h1>
+    <div class="add-project-container">
+      <button (click)="openDialog()" mat-mini-fab color="accent" aria-label="Додати проект">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="cards-container">
+    <div *ngIf="projects.length != 0" class="cards">
+      <mat-card *ngFor="let project of projects" class="card">
+        <mat-card-title>{{project.name}}</mat-card-title>
+        <mat-card-subtitle>{{project.description}}</mat-card-subtitle>
+        <mat-card-actions>
+          <button routerLink="/board" mat-button>ДОШКА</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div *ngIf="projects.length == 0">
+      
+    </div>
+  </div>
+</div>

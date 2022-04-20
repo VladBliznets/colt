@@ -1,3 +1,5 @@
+import { HomeModule } from './../home/home.module';
+import { HomeComponent } from './../home/home.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { NgModule } from '@angular/core';
@@ -21,11 +23,15 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: BoardComponent
+        loadChildren: () => import('../../app/home/home.module').then((m) => m.HomeModule)
       },
       {
         path: 'settings',
         component: SettingsComponent
+      },
+      {
+        path: 'board',
+        component: BoardComponent
       },
       {
         path: `issue/:${ProjectConst.IssueId}`,

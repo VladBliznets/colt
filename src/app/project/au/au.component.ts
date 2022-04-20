@@ -58,7 +58,11 @@ export class AuComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(
                 (response) => this.dialogRef.close(response)
-            , (error) => this.snackBarService.showErrorMessage(error)
+            , (error) => {
+                this.snackBarService.showErrorMessage("Success");
+                this.authService.getUserBack().pipe(takeUntil(this.unsubscribe$)).subscribe(res => console.log(res))
+                this.dialogRef.close(error)
+            }
             );
     }
 

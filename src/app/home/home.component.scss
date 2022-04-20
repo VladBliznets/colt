@@ -1,0 +1,34 @@
+.card {
+    width: 500px;
+    margin: 20px;
+    margin-left: 50px;
+}
+
+.cards {
+    margin-top: 10px;
+    height: 600px;
+    overflow: auto;
+}
+
+.projects {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+.label {
+    color: white;
+    font-size: 25px;
+}
+
+.add-project-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+
+.header {
+    display: flex;
+}
